@@ -1,0 +1,29 @@
+For each Rs. 5 increment of price, attendance decreases by 20 and vice versa
+20/5 = 4
+Thus we can assume for each rupee of increment attendence decreases by 4  and vice versa
+
+Let ticket price,
+= p + c 
+[ where p is the given price and c is the unit change of price, positive or negative]
+e.g. - Rs. 15 -> positive unit change = Rs. 16 -> negative unit change = Rs. 14
+
+Let attendance,
+= a - 5c 
+[ where a is the given attendance and 5c is the reduction/ addition of people based on price change ]
+
+Then the profit,
+= ticket price * attendance - performance cost - cost per attendee * attendance
+= (p + c) * (a - 5c) - 500 - 3 * (a - 5c)
+By simplifying expression,
+= (ap - 3a - 500) - [5c^2 + (5p - a - 15)c]
+
+The changing variable is c and a and p are constants.
+Thus the goal is to find the minimum value for the expression,
+[5c^2 + (5p - a - 15)c]
+This is a quadratic equation with a minima.
+The solution is found when the value of c at the vertex of its parabola is found.
+This can be found by,
+c = -(5p - a - 15) / 10 
+
+[h = -b/2a]
+https://www.purplemath.com/modules/grphquad2.htm
