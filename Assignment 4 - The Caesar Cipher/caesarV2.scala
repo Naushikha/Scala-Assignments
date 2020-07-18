@@ -1,17 +1,12 @@
 //v2 - Uses Map Reduce to perform the cipher
 object caesarV2{
 	val shifts = 1; //Shifts can be configured within the app, by default this is set to '1'
-	val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "; //This means that the alphabet can be configured as we wish, this is not possible in V2
-	//Also, the alphabet is updated with a space at the end (Minor modification to the lecture slides)
+	val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //This means that the alphabet can be configured as we wish, this is not possible in V2
 	
 	//There's an issue in the algorithm given in the slides... for an example if we were to decrypt "ABC" Scala would throw a string index out of range error
-	//This function ensures that if the calculation returns a negative index, we return the corresponding proper index for that index from the rear end of the alphabet string
-	def check(num: Int): Int = {
-		if (num < 0) num + alphabet.size else num;  
-	}
-	
-	val encrypt = (pt: String) => pt.map(c => alphabet((alphabet.indexOf(c.toUpper)+ shifts) % alphabet.size));
-	val decrypt = (ct: String) => ct.map(c => alphabet(check((alphabet.indexOf(c.toUpper)- shifts) % alphabet.size)));
+
+	val encrypt = (pt: String) => pt.map(c => if (c != ' ') alphabet((alphabet.indexOf(c.toUpper)+ shifts) % alphabet.size) else ' '); //We added proper support for spaces
+	val decrypt = (ct: String) => ct.map(c => if (c != ' ') alphabet((alphabet.indexOf(c.toUpper)- shifts + 26) % alphabet.size) else ' ');//+26 ensures that String index stays in range
 	
 	//The program accepts two arguments,
 		//the mode - Encrypt, Decrypt
