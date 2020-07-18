@@ -1,7 +1,7 @@
 //v2 - Uses Map Reduce to perform the cipher
 object caesarV2{
 	val shifts = 1; //Shifts can be configured within the app, by default this is set to '1'
-	val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //This means that the alphabet can be configured as we wish, this is not possible in V2
+	val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //This means that the alphabet can be configured as we wish, this is not possible in V1
 	
 	//There's an issue in the algorithm given in the slides... for an example if we were to decrypt "ABC" Scala would throw a string index out of range error
 
