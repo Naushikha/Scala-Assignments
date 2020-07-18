@@ -32,7 +32,7 @@ object caesarV2{
 		else{
 			printf("ERROR;\nRequired arugments not provided!\n\n");
 			printf("First argument should specify mode of operation;\n\ti.e. encrypt or decrypt\n\n");
-			printf("Second argument should specify plain text or cipher text;\n\te.g. caesarV2 encrypt \"Hello World\"\n\t     caesarV2 decrypt \"IfmmpaXpsme\"\n");
+			printf("Second argument should specify plain text or cipher text;\n\te.g. caesarV2 encrypt \"Hello World\"\n\t     caesarV2 decrypt \"Ifmmp Xpsme\"\n");
 		}
 	}
 }
