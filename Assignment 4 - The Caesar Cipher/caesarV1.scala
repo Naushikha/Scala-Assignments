@@ -1,4 +1,7 @@
-object caesar{
+//This was my first attempt by using the usual "Imperative" approach (THIS METHOD DOES NOT USE MAP REDUCE, HOWEVER V2 DOES!)
+//Programming this way adds upto 80+ lines of code!
+//(Did it just for the fun of it and comparison purposes)
+object caesarV1{
 	val shifts = 1; //Shifts can be configured within the app, by default this is set to '1'
 
 	def encrypt(plainText: String): Int = { //Function to encrypt any given string using the cipher
@@ -8,7 +11,7 @@ object caesar{
 			if ('A' <= tmpChar && tmpChar <= 'Z'){
 				val tmpCharVal:Int = tmpChar % 'A';
 				var tmpRes = tmpCharVal + shifts;
-				if (tmpRes < 0) tmpRes += 26;
+				if (tmpRes < 0) tmpRes += 26; //A special case that is mentioned in the reference
 				else if (tmpRes > 25) tmpRes -= 26;
 				tmpRes = (tmpRes % 26) + 'A';
 				printf("%c", tmpRes); 
@@ -26,7 +29,7 @@ object caesar{
 			if ('A' <= tmpChar && tmpChar <= 'Z'){
 				val tmpCharVal:Int = tmpChar % 'A';
 				var tmpRes = tmpCharVal - shifts;
-				if (tmpRes < 0) tmpRes += 26;
+				if (tmpRes < 0) tmpRes += 26; //A special case that is mentioned in the reference 
 				else if (tmpRes > 25) tmpRes -= 26;
 				tmpRes = (tmpRes % 26) + 'A';
 				printf("%c", tmpRes); 
@@ -41,7 +44,7 @@ object caesar{
 		//the mode - Encrypt, Decrypt
 		//the cipher or the plain text
 	def main(args: Array[String]): Unit = {
-		printf("---------The Caesar Cipher---------\n");
+		printf("---------The Caesar Cipher v1.0 (Imperative Style)---------\n");
 	
 		//First let's check whether we have the number of arguments required (that is 2)
 		if (args.length == 2){
@@ -73,7 +76,7 @@ object caesar{
 		else{
 			printf("ERROR;\nRequired arugments not provided!\n\n");
 			printf("First argument should specify mode of operation;\n\ti.e. encrypt or decrypt\n\n");
-			printf("Second argument should specify plain text or cipher text;\n\te.g. caesar encrypt \"Hello World\"\n\t     caesar decrypt \"Ifmmp Xpsme\"\n");
+			printf("Second argument should specify plain text or cipher text;\n\te.g. caesarV1 encrypt \"Hello World\"\n\t     caesarV1 decrypt \"Ifmmp Xpsme\"\n");
 		}
 	}
 }
